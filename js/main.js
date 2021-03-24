@@ -2,6 +2,10 @@ var app = new Vue ({
     el: '#app',
     data: {
         search: '',
+        user: {
+            name: 'Nome Utente',
+            avatar: '_io'
+        },
         contacts: [
             {
                 name: 'Michele',
@@ -70,7 +74,7 @@ var app = new Vue ({
                 ],
             },
             {
-                name: 'Luisa',
+                name: 'Luca',
                 avatar: '_4',
                 visible: true,
                 messages: [
@@ -87,6 +91,9 @@ var app = new Vue ({
                 ],
             },
         ]
+        
+    },
+    methods: {
         
     }
 });

@@ -137,19 +137,43 @@ label {
   transition: .15s all ease-in-out;
 }
 .contatti {
-  height: 70%;
+  height: 76%;
   width: 100%;
   background-color: white;
+  overflow-y: scroll;
+  display: flex;
+}
+.contatti ul {
+  width: 100%;
 }
 .contatti li {
-  height: 50px;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid lightgrey;
 }
-
+.contatti li:hover {
+  background-color: #f0f1f1;
+}
+.contatti li:active {
+  background-color: #d8d8d8;
+}
+.contatti li:last-child {
+  border-bottom: none;
+}
+.contatti li img {
+  height: 70%;
+  border-radius: 50px;
+  margin: auto 10px;
+}
+.contatti li h5 {
+  margin-top: 15px;
+}
 .contatto_messaggi {
   height: 8%;
   width: 100%;
   background-color: #EAEAEA;
-  border-left: 1px solid LightGrey; 
+  border-left: 1px solid #E9EBEB; 
 }
 .box_messaggi {
   height: 84%;

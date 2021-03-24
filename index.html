@@ -19,8 +19,8 @@
             <div class="box_left">
               <div class="utente">
                   <div class="utente_left">
-                    <img src="img/avatar_io.jpg" alt="">
-                    <h5>Nome Utente</h5>
+                    <img :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.name">
+                    <h5>{{user.name}}</h5>
                   </div>
                   <div class="utente_right">
                     <button style="background: none; border: none;"><i class="fas fa-circle-notch"></i></button>
@@ -42,15 +42,19 @@
               </div>
               <div class="contatti">
               <ul>
-                <li>
-                  <h1>{{ contacts.name }}</h1>
+                <li v-for="(contact, index) in contacts">
+                  <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                  <h5>{{contact.name}}</h5>
                 </li>
               </ul>
               </div>
             </div>
             <div class="box_right">
               <div class="contatto_messaggi">
-                
+                <div class="utente_selezionato">
+                <img src="" alt="">
+                <h5></h5>
+                </div>
               </div>
               <div class="box_messaggi"></div>
               <div class="banner_messaggio">
