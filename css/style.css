@@ -158,6 +158,9 @@ label {
 .contatti li:active {
   background-color: #d8d8d8;
 }
+.contatti li:focus {
+  background-color: #d8d8d8;
+}
 .contatti li:last-child {
   border-bottom: none;
 }
@@ -174,11 +177,80 @@ label {
   width: 100%;
   background-color: #EAEAEA;
   border-left: 1px solid #E9EBEB; 
+  display: flex;
+  justify-content: space-between;
 }
+.utente_selezionato {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.contatto_messaggi img {
+  height: 80%;
+  border-radius: 40px;
+  margin: 0 10px;
+}
+.nome_accesso h5 {
+  margin: 0;
+}
+.nome_accesso h6{
+  color: #a3a2a2;
+  ;
+  margin: 0;
+}
+.pulsanti_utente{
+  display: flex;
+  align-items: center;
+  color: #B1B1B1;
+  font-size: 16px;
+}
+.pulsanti_utente .fas{
+  margin: 0 8px;
+}
+.pulsanti_utente .fa-ellipsis-v {
+  margin-right: 16px;
+}
+
 .box_messaggi {
   height: 84%;
 }
+
+.casella_messaggio {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  border-radius: 10px;
+  position: relative;
+} 
+.messaggio.sent {
+  background-color: #D5F9BA;
+  float: right;
+  clear: both;
+}
+.messaggio.received {
+  background-color: white;
+  float: left;
+  clear: both;
+}
+.testo_messaggio {
+  margin: auto 0;
+  padding: 15px;
+}
+
+.orario_messaggio {
+  position: absolute;
+  font-size: 10px;
+  color: #a3a2a2;
+  align-self: flex-end;
+  justify-self: baseline;
+  bottom: 0;
+  margin: 10px 5px 5px 0;
+}
+
 .banner_messaggio {
   height: 8%;
   background-color: #F3EEEA;
 }
+

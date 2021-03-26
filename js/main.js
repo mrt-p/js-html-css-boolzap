@@ -90,10 +90,20 @@ var app = new Vue ({
                     }
                 ],
             },
-        ]
-        
+        ],
+        contactActive: 0,        
     },
+    
     methods: {
-        
+        getMessageClass(index) {
+            let thisContact = this.contacts[this.contactActive];
+            let messageClass = 'messaggio ' + thisContact.messages[index].status;
+            return messageClass;
+        },
+        setActiveConversation(index) {
+            this.contactActive = index;
+        },
     }
 });
+
+console.log(app.contacts[0].messages);

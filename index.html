@@ -42,7 +42,7 @@
               </div>
               <div class="contatti">
               <ul>
-                <li v-for="(contact, index) in contacts">
+                <li v-for="(contact, index) in contacts" :class="(index === contactActive) ? 'contact active' : 'contact'" @click="setActiveConversation(index)">
                   <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                   <h5>{{contact.name}}</h5>
                 </li>
@@ -52,11 +52,27 @@
             <div class="box_right">
               <div class="contatto_messaggi">
                 <div class="utente_selezionato">
-                <img src="" alt="">
-                <h5></h5>
+                <img :src="'img/avatar' + contacts[contactActive].avatar + '.jpg'" :alt="contacts[contactActive].name">
+                  <div class="nome_accesso">
+                    <h5>{{contacts[contactActive].name}}</h5>
+                    <h6>Ultimo accesso alle</h6>
+                  </div> 
+                </div>
+                <div class="pulsanti_utente">
+                <button style="background: none; border: none;"><i class="fas fa-search"></i></button>
+                <button style="background: none; border: none;"><i class="fas fa-paperclip"></i></button>  
+                <button style="background: none; border: none;"><i class="fas fa-ellipsis-v"></i></button>  
                 </div>
               </div>
-              <div class="box_messaggi"></div>
+              <div class="box_messaggi">
+                <div class="messaggi">
+                  <div class="casella_messaggio" v-for="(message, index) in contacts[contactActive].messages" 
+                  :class='getMessageClass(index)'>
+                    <span class="testo_messaggio"> {{message.text}} </span>
+                    <span class="orario_messaggio"> {{message.date}} </span>
+                  </div>
+                </div>
+              </div>
               <div class="banner_messaggio">
                 <button style="background: none; border: none;"><i class="far fa-smile"></i></i></button>
               </div>
