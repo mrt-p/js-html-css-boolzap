@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -37,12 +38,12 @@
               </div>
               <div class="ricerca">
                 <button><i class="fas fa-search"></i></button>
-                <input type="text" class="search_text" v-model="search" placeholder="Cerca o inizia una nuova chat..."/> 
+                <input class="search_text" v-model="search" placeholder="Cerca o inizia una nuova chat..."/> 
                 <label>Search title:</label>
               </div>
               <div class="contatti">
               <ul>
-                <li v-for="(contact, index) in contacts" :class="(index === contactActive) ? 'contact active' : 'contact'" @click="setActiveConversation(index)">
+                <li v-for="(contact, index) in contacts" v-for="contact in filteredList" :class="(index === contactActive) ? 'contact active' : 'contact'" @click="setActiveConversation(index)">
                   <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                   <h5>{{contact.name}}</h5>
                 </li>
@@ -74,7 +75,14 @@
                 </div>
               </div>
               <div class="banner_messaggio">
+                <div class="footer_left">
                 <button style="background: none; border: none;"><i class="far fa-smile"></i></i></button>
+                </div>
+                <input class="nuovo_messaggio" placeholder="Scrivi un messaggio" 
+                @keyup.enter="sendMessage" v-model="newMessage">
+                <div class="footer_right">
+                  <button style="background: none; border: none;"><i class="fa fa-microphone"></i></i></button>
+                </div>
               </div>
             </div>
           </div>

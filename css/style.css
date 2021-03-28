@@ -161,6 +161,7 @@ label {
 .contatti li:focus {
   background-color: #d8d8d8;
 }
+
 .contatti li:last-child {
   border-bottom: none;
 }
@@ -213,6 +214,7 @@ label {
 
 .box_messaggi {
   height: 84%;
+  overflow-y: scroll;
 }
 
 .casella_messaggio {
@@ -236,21 +238,38 @@ label {
 }
 .testo_messaggio {
   margin: auto 0;
-  padding: 15px;
+  padding: 15px 0 0 15px;
 }
 
 .orario_messaggio {
-  position: absolute;
   font-size: 10px;
   color: #a3a2a2;
   align-self: flex-end;
-  justify-self: baseline;
   bottom: 0;
-  margin: 10px 5px 5px 0;
+  margin: 0 5px 5px 0;
 }
 
 .banner_messaggio {
   height: 8%;
+  width: 100%;
   background-color: #F3EEEA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.banner_messaggio i {
+  font-size: 20px;
+}
+.banner_messaggio input{
+  width: 80%;
+  height: 70%;
+  padding-left: 20px;
+  border-style: none;
+  border-radius: 5px;
+  color: grey;
+  font-size: 12px;
+}
+.footer_left, .footer_right {
+  color: #a3a2a2;
+  margin: 0 auto;
+}

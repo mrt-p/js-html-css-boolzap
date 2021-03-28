@@ -95,15 +95,50 @@ var app = new Vue ({
     },
     
     methods: {
+        
         getMessageClass(index) {
             let thisContact = this.contacts[this.contactActive];
             let messageClass = 'messaggio ' + thisContact.messages[index].status;
             return messageClass;
         },
+        
+        sendMessage() {
+            // prendo messaggio
+            let thisContact = this.contacts[this.contactActive];
+
+            thisContact.messages.push({
+                text: this.newMessage,
+                date: dayjs().format('DD MM YYYY hh:mm:ss'),
+                status: 'sent'
+            });
+
+            // svuoto input
+            this.newMessage = '';
+
+            // mando messaggio dopo 1 secondo
+            setTimeout(() => {
+                thisContact.messages.push({
+                    text: 'ok',
+                    date: dayjs().format('DD MM YYYY hh:mm:ss'),
+                    status: 'received'
+                });
+            }, 1000);
+        },
         setActiveConversation(index) {
+            // rendiamo visibili i messaggi di un contatto
             this.contactActive = index;
         },
+    },
+
+    computed: {
+        filteredList() {
+            return this.contacts.filter(contact => {
+            return contact.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
     }
-});
+
+},
+)
 
 console.log(app.contacts[0].messages);
